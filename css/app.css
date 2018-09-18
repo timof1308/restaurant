@@ -1,0 +1,16 @@
+#intro {
+    background: url("https://source.unsplash.com/random");
+    color: white;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding: 75px;
+}
+
+#intro h1 {
+    font-size: 44px;
+}
+
+#intro hr {
+    border-top: 1px solid rgba(255, 255, 255, .7);
+}
