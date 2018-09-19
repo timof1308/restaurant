@@ -1,5 +1,6 @@
 #intro {
-    background: url("https://source.unsplash.com/random");
+    background: url("https://source.unsplash.com/random") no-repeat center center;
+    background-size: cover;
     color: white;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;

@@ -1,22 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php include "partials/html_top.php"; ?>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/app.css">
-    <link rel="stylesheet" href="../css/bestellung.css">
-    <title>Restaurant Bestellung</title>
-</head>
-<body>
-
-<?php include 'partials/navbar.html' ?>
+<?php include 'partials/navbar.php'; ?>
 
 <div class="container">
     <form>
@@ -51,13 +35,7 @@
     </form>
 </div>
 
-<?php include 'partials/footer.html' ?>
+<?php include 'partials/footer.php'; ?>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="../js/app.js"></script>
-</body>
-</html>
+<?php include 'partials/html_bottom.php'; ?>
+
