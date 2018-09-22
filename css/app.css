@@ -1,17 +1,88 @@
-#intro {
-    background: url("https://source.unsplash.com/random") no-repeat center center;
-    background-size: cover;
-    color: white;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    padding: 75px;
+body {
+    min-height: 100vh;
 }
 
-#intro h1 {
-    font-size: 44px;
+#videoIntro {
+    min-width: 100%;
+    min-height: 100vh;
+    width: auto;
+    height: auto;
+    overflow: hidden;
 }
 
-#intro hr {
-    border-top: 1px solid rgba(255, 255, 255, .7);
+#overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.65);
+    min-width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    margin-top: 53px;
+}
+
+#overlay .section {
+    color: #f3f3f3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#overlay .section h1 {
+    text-transform: uppercase;
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+}
+
+#overlay .section p {
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 0.08em;
+}
+
+#overlay .section p:last-of-type {
+    margin-bottom: 42px;
+}
+
+#overlay .section #anchor {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, .4);
+    padding: 24px 20px 14px;
+    -webkit-transition: background .3s ease;
+    -moz-transition: background .3s ease;
+    -o-transition: background .3s ease;
+    transition: background .3s ease;
+}
+
+#overlay .section #anchor i {
+    color: rgba(255, 255, 255, .8);
+    font-size: 28px;
+    -webkit-transition: color .3s ease;
+    -moz-transition: color .3s ease;
+    -o-transition: color .3s ease;
+    transition: color .3s ease;
+}
+
+#overlay .section #anchor:hover {
+    background: rgba(255, 255, 255, .8);
+}
+#overlay .section #anchor:hover i {
+    color: rgba(0, 0, 0, .7);
+}
+
+.line {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#steps {
+    height: 100vh;
 }

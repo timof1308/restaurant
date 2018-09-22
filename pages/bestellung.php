@@ -2,7 +2,7 @@
 
 <?php include 'partials/navbar.php'; ?>
 
-<div class="container">
+<div class="container mt-5 pt-5">
     <form>
         <div class="form-group">
             <label for="exampleFormControlInput1">Email address</label>
@@ -34,6 +34,7 @@
         </div>
     </form>
 </div>
+
 
 <?php include 'partials/footer.php'; ?>
 
