@@ -1,37 +1,31 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php include "partials/html_top.php"; ?>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?php asset('/css/app.css')?>">
-    <title>Restaurant Bestellung</title>
-</head>
-<body>
+<?php include 'partials/navbar.php'; ?>
 
-<?php include 'partials/navbar.php' ?>
+<section>
+    <video autoplay muted loop id="videoIntro">
+        <source src="<?php asset('/img/bar_counter.mp4') ?>" type="video/mp4">
+    </video>
 
-<div class="jumbotron" id="intro">
-    <h1>Restaurant Name</h1>
-    <p class="lead">Willkommen auf unserer Webseite</p>
-    <hr class="my-4">
-    <p>Bestellen Sie hier ihr essen einfach und bequem Ihr Essen</p>
-    <a class="btn btn-primary btn-lg" href="<?php asset('/bestellung')?>" role="button">Los Gehts!</a>
+    <div id="overlay">
+        <div class="section">
+            <h1>Restaurant Name</h1>
+            <div class="line"></div>
+            <p class="lead">Willkommen auf unserer Webseite</p>
+            <p>Bestellen Sie hier einfach und bequem Ihr Essen</p>
+            <a href="#" id="anchor"><i class="fas fa-angle-double-down"></i></a>
+        </div>
+    </div>
+</section>
+
+<div class="pt-5" id="steps">
+    <div class="container">
+        <h1>So einfach gehts:</h1>
+        <hr>
+
+    </div>
 </div>
 
-<?php include 'partials/footer.php' ?>
+<?php include 'partials/footer.php'; ?>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="<?php asset('/js/app.js')?>"></script>
-</body>
-</html>
+<?php include 'partials/html_bottom.php'; ?>
