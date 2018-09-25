@@ -1,34 +1,55 @@
-body {
-    min-height: 100vh;
-}
-
 #videoIntro {
     min-width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     width: auto;
     height: auto;
     overflow: hidden;
 }
 
-#overlay {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.65);
-    min-width: 100%;
-    height: 100vh;
-    min-height: 100vh;
-    margin-top: 53px;
+/* .section klasse über dem video lassen bei kleinen screen */
+@media (max-width: 992px) {
+    #videoIntro {
+        min-height: 100vh;
+    }
 }
 
-#overlay .section {
-    color: #f3f3f3;
+#footer .container a:hover {
+    text-decoration: none;
+}
+
+#footer .container #fb_link i {
+    color: #3b5998;
+}
+
+#footer .container #twitter_link i {
+    color: #1da1f2;
+}
+
+#footer .container #insta_link i {
+    color: #e1306c;
+}
+
+#overlay {
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+}
+
+#overlay .section {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #f3f3f3;
     text-align: center;
+    padding: 40px;
 }
 
 #overlay .section h1 {
@@ -53,10 +74,6 @@ body {
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, .4);
     padding: 24px 20px 14px;
-    -webkit-transition: background .3s ease;
-    -moz-transition: background .3s ease;
-    -o-transition: background .3s ease;
-    transition: background .3s ease;
 }
 
 #overlay .section #anchor i {
@@ -66,13 +83,52 @@ body {
     -moz-transition: color .3s ease;
     -o-transition: color .3s ease;
     transition: color .3s ease;
+    -webkit-animation: bounce 1.5s ease-in-out infinite;
+    -o-animation: bounce 1.5s ease-in-out infinite;
+    animation: bounce 1.5s ease-in-out infinite;
 }
 
 #overlay .section #anchor:hover {
     background: rgba(255, 255, 255, .8);
 }
+
 #overlay .section #anchor:hover i {
     color: rgba(0, 0, 0, .7);
+}
+
+/**
+ * Bounce Effekt
+ * 3 pixel nach unten dann 2 pixel nach oben (vom ursprung aus)
+ */
+@keyframes bounce {
+    0% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
+    33% {
+        -webkit-transform: translateY(3px);
+        -moz-transform: translateY(3px);
+        -ms-transform: translateY(3px);
+        -o-transform: translateY(3px);
+        transform: translateY(3px);
+    }
+    66% {
+        -webkit-transform: translateY(-2px);
+        -moz-transform: translateY(-2px);
+        -ms-transform: translateY(-2px);
+        -o-transform: translateY(-2px);
+        transform: translateY(-2px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
 }
 
 .line {
@@ -83,6 +139,215 @@ body {
     margin-bottom: 20px;
 }
 
-#steps {
-    height: 100vh;
+#steps .row .icon i {
+    font-size: 52px;
+    margin-bottom: 16px;
+    color: #34495e;
+}
+
+#steps .text {
+    color: #2c3e50;
+    font-size: 24px;
+}
+#steps .row .text {
+    color: #2c3e50;
+    font-size: 18px;
+}
+
+
+/**
+ * LOGIN
+ */
+#login-page {
+    min-height: 100vh;
+    width: 100%;
+    background: #f6f6f6;
+}
+
+#login-card {
+    width: 100%;
+    max-width: 430px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/**
+ * ANIMATIONS
+ */
+@keyframes placeholderShimmer {
+    to {
+        background-position: 120% 0;
+    }
+}
+
+@keyframes placeholderParagraphShimmer {
+    to {
+        background-position: 120% 0, 0 0, 0 24px, 0 48px, 0 72px; /* Zeile 4 */
+    }
+}
+
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+/**
+ * PLACEHOLDER
+ */
+.placeholder-title {
+    background: rgba(69, 85, 101, 0.15);
+    height: 26px;
+    margin-right: 70%;
+    background-repeat: repeat-y;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1));
+    background-size: 20% 100%;
+    background-position: -20% 0;
+    animation: placeholderShimmer 1s infinite;
+    margin-bottom: 16px;
+}
+
+.placeholder-title:last-child {
+    margin-bottom: 0;
+}
+
+.placeholder-text {
+    background: rgba(69, 85, 101, 0.15);
+    height: 16px;
+    background-repeat: repeat-y;
+    background-image: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1));
+    background-size: 20% 100%;
+    background-position: -20% 0;
+    animation: placeholderShimmer 1s infinite;
+}
+
+.placeholder-image {
+    background: rgba(69, 85, 101, 0.15);
+    height: 200px;
+    background-repeat: repeat-y;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1));
+    background-size: 20% 100%;
+    background-position: -20% 0;
+    animation: placeholderShimmer 1s infinite;
+}
+
+.placeholder-image.round {
+    border-radius: 50%;
+    width: 200px;
+}
+
+.placeholder-paragraph {
+    background-repeat: repeat-y;
+    background-image: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%), linear-gradient(rgba(69, 85, 101, 0.15) 16px, transparent 0), linear-gradient(rgba(69, 85, 101, 0.15) 16px, transparent 0), linear-gradient(rgba(69, 85, 101, 0.15) 16px, transparent 0), linear-gradient(rgba(69, 85, 101, 0.15) 16px, transparent 0); /* Zeile 4 */
+    background-size: 20% 120px, 24% 120px, 95% 120px, 91% 120px, 97% 120px; /* Zeile 4 */
+    background-position: -20% 0, 0 0, 0 24px, 0 48px, 0 72px; /* Zeile 4 */
+    animation: placeholderParagraphShimmer 1s infinite;
+    height: 100px;
+    margin-bottom: 2rem;
+}
+
+.toast-alert {
+    z-index: 1080;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(5, 5, 5, 0.9);
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    margin-right: -50%;
+    padding: 12px 18px;
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    text-align: center;
+    width: 101%;
+    min-width: 280px;
+}
+
+@media (min-width: 560px) {
+    .toast-alert {
+        width: auto;
+        max-width: 560px;
+    }
+}
+
+.toast-alert.fade {
+    opacity: 0;
+    -ms-transform: translate(-50%, 100%);
+    transform: translate(-50%, 100%);
+    transition: all 0.25s ease-out;
+}
+
+.toast-alert.fade.in {
+    opacity: 1;
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.toast-alert .fa {
+    margin-right: 9px;
+}
+
+.toast-alert.toast-primary {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(114, 191, 68, 0.9);
+}
+
+.toast-alert.toast-secondary {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(69, 85, 101, 0.9);
+}
+
+.toast-alert.toast-info {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(7, 132, 193, 0.9);
+}
+
+.toast-alert.toast-success {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(46, 125, 50, 0.9);
+}
+
+.toast-alert.toast-warning {
+    color: rgba(35, 35, 35, 0.9);
+    background-color: rgba(245, 168, 28, 0.9);
+}
+
+.toast-alert.toast-danger {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(205, 32, 46, 0.9);
 }
