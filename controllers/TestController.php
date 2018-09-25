@@ -36,7 +36,15 @@ class TestController
 
     static function config()
     {
-        echo config('test.test.test.test');
+        translate('nav.home');
         return true;
+    }
+
+    static function regex($id) {
+        echo $id;
+    }
+
+    static function test() {
+        return json(Auth::name());
     }
 }

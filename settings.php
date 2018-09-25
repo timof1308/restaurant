@@ -11,11 +11,11 @@ return array(
         'protocol' => 'http://',
         'base_url' => '/restaurant'
     ),
+    'lang_fallback' => 'de',
     'db' => array(
         'database' => 'resbes',
         'user' => 'resbes',
         'password' => 'DHBW_WP_2018',
-        'port' => '3306'
+        'server' => '127.0.0.1'
     ),
-    'test' => ['test' => ['test' => ['test' => 'data']]]
 );

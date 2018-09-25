@@ -1,19 +1,38 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="nav">
     <a class="navbar-brand" href="<?php asset('/') ?>">ResBes</a>
-    <button class="navbar-toggler" type="button" id="mobileNavBtn" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="<?php asset('/') ?>">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php asset('/bestellung') ?>">Bestellung</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php asset('/rechnung') ?>">Rechnung</a>
-            </li>
-        </ul>
-    </div>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="<?php asset('/') ?>">
+                <?php translate('nav.home') ?>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<?php asset('/bestellung') ?>">
+                <?php translate('nav.order') ?>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<?php asset('/rechnung') ?>">
+                <?php translate('nav.bill') ?>
+            </a>
+        </li>
+    </ul>
+    <!-- navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown dropleft">
+            <a class="nav-link dropdown-toggle" href="#" id="nav_dd_lang" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <?php translate('lang.lang') ?>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="nav_dd_lang">
+                <a class="dropdown-item" href="<?php asset('/de') ?>">
+                    <?php translate('lang.de') ?>
+                </a>
+                <a class="dropdown-item" href="<?php asset('/en') ?>">
+                    <?php translate('lang.en') ?>
+
+                </a>
+            </div>
+        </li>
+    </ul>
 </nav>
