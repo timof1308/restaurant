@@ -9,6 +9,7 @@ $(document).ready(function () {
         e.preventDefault();
         scrollToElement('#steps')
     });
+
 });
 
 /*
@@ -24,4 +25,21 @@ function scrollToElement(id) {
     $('html, body').animate({
         scrollTop: $target.offset().top
     }, 750);
+}
+
+/**
+ * Toast Notification
+ * @param content
+ * @param type
+ * @returns {jQuery.fn.init|jQuery|HTMLElement}
+ */
+function toast(content, type) {
+    var $toast = $('<div class="toast-alert fade in">' + content + '</div>');
+    type = type || 'default';
+    $toast.addClass('toast-' + type);
+    $('body').append($toast);
+    window.setTimeout(function () {
+        $toast.remove();
+    }, 7500);
+    return $toast;
 }
