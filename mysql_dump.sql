@@ -2,22 +2,30 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Sep 26, 2018 at 06:01 PM
--- Server version: 5.7.23
--- PHP Version: 7.2.8
+-- Host: 127.0.0.1
+-- Erstellungszeit: 27. Sep 2018 um 17:00
+-- Server-Version: 10.1.36-MariaDB
+-- PHP-Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
--- Database: `resbes`
+-- Datenbank: `resbes`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bestellung`
+-- Tabellenstruktur für Tabelle `bestellung`
 --
 
 CREATE TABLE `bestellung` (
@@ -31,7 +39,7 @@ CREATE TABLE `bestellung` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gericht`
+-- Tabellenstruktur für Tabelle `gericht`
 --
 
 CREATE TABLE `gericht` (
@@ -40,10 +48,28 @@ CREATE TABLE `gericht` (
   `preis` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Daten für Tabelle `gericht`
+--
+
+INSERT INTO `gericht` (`id`, `kategorie_id`, `preis`) VALUES
+(1, 1, 3.5),
+(2, 1, 4.5),
+(3, 1, 2.2),
+(4, 2, 6),
+(5, 2, 5.4),
+(6, 2, 7.5),
+(7, 3, 12.5),
+(8, 3, 21),
+(9, 3, 9.5),
+(10, 4, 4),
+(11, 4, 6.5),
+(12, 4, 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gericht_details`
+-- Tabellenstruktur für Tabelle `gericht_details`
 --
 
 CREATE TABLE `gericht_details` (
@@ -54,10 +80,40 @@ CREATE TABLE `gericht_details` (
   `beschreibung` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Daten für Tabelle `gericht_details`
+--
+
+INSERT INTO `gericht_details` (`id`, `gericht_id`, `lang`, `name`, `beschreibung`) VALUES
+(1, 1, 'de', 'Cola', '0,5L'),
+(2, 1, 'en', 'Coke', '0,5L'),
+(3, 2, 'de', 'Pils', 'Bier'),
+(4, 2, 'en', 'Pils', 'Beer'),
+(5, 3, 'de', 'Wasser', 'still'),
+(6, 3, 'en', 'Water', 'Without Gas'),
+(7, 4, 'de', 'Gegrillte Peperoni', 'Scharf'),
+(8, 4, 'en', 'Grilled Pepperoni', 'Hot'),
+(9, 5, 'de', 'Käseplatte', '3 verschiedene Sorten'),
+(10, 5, 'en', 'Mixed Cheese ', '3 different Types'),
+(11, 6, 'de', 'Antipasti', 'Frisch'),
+(12, 6, 'en', 'Antipasti', 'Fresh'),
+(13, 7, 'de', 'Schnitzel mit Pommes', 'Jäger- oder Wiener Art'),
+(14, 7, 'en', 'Schnitzel with Fries', 'Jäger- oder Wiener Art'),
+(15, 8, 'de', 'Rumpsteak mit Bratkartoffeln', 'Titanic - Medium - Well Done'),
+(16, 8, 'en', 'Rumpsteak with fried potatoes', 'Titanic - Medium - Well Done'),
+(17, 9, 'de', 'Spaghetti Bolognese', ''),
+(18, 9, 'en', 'Spaghetti Bolognese', ''),
+(19, 10, 'de', 'Tiramisu', ''),
+(20, 10, 'en', 'Tiramisu', ''),
+(21, 11, 'de', 'Crème brûlée', ''),
+(22, 11, 'en', 'Crème brûlée', ''),
+(23, 12, 'de', 'Titanic Dessert', ''),
+(24, 12, 'en', 'Titanic Dessert', '');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategorie`
+-- Tabellenstruktur für Tabelle `kategorie`
 --
 
 CREATE TABLE `kategorie` (
@@ -66,10 +122,24 @@ CREATE TABLE `kategorie` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Daten für Tabelle `kategorie`
+--
+
+INSERT INTO `kategorie` (`id`, `lang`, `name`) VALUES
+(1, 'de', 'Getränk'),
+(1, 'en', 'Drinks'),
+(2, 'de', 'Vorspeise'),
+(2, 'en', 'Starter'),
+(3, 'de', 'Hauptgang'),
+(3, 'en', 'Main Course'),
+(4, 'de', 'Nachtisch'),
+(4, 'en', 'Dessert');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `position`
+-- Tabellenstruktur für Tabelle `position`
 --
 
 CREATE TABLE `position` (
@@ -83,7 +153,7 @@ CREATE TABLE `position` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tisch`
+-- Tabellenstruktur für Tabelle `tisch`
 --
 
 CREATE TABLE `tisch` (
@@ -93,7 +163,7 @@ CREATE TABLE `tisch` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tisch`
+-- Daten für Tabelle `tisch`
 --
 
 INSERT INTO `tisch` (`id`, `plaetze`, `ausrichtung`) VALUES
@@ -105,7 +175,7 @@ INSERT INTO `tisch` (`id`, `plaetze`, `ausrichtung`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Tabellenstruktur für Tabelle `user`
 --
 
 CREATE TABLE `user` (
@@ -115,7 +185,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user`
+-- Daten für Tabelle `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `password`) VALUES
@@ -123,38 +193,38 @@ INSERT INTO `user` (`id`, `name`, `password`) VALUES
 (2, 'fvogel', 'cc03e747a6afbbcbf8be7668acfebee5');
 
 --
--- Indexes for dumped tables
+-- Indizes der exportierten Tabellen
 --
 
 --
--- Indexes for table `bestellung`
+-- Indizes für die Tabelle `bestellung`
 --
 ALTER TABLE `bestellung`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_BestellungTisch` (`tisch_id`);
 
 --
--- Indexes for table `gericht`
+-- Indizes für die Tabelle `gericht`
 --
 ALTER TABLE `gericht`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_GerichtKategorie` (`kategorie_id`);
 
 --
--- Indexes for table `gericht_details`
+-- Indizes für die Tabelle `gericht_details`
 --
 ALTER TABLE `gericht_details`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_GerichtDetails` (`gericht_id`);
 
 --
--- Indexes for table `kategorie`
+-- Indizes für die Tabelle `kategorie`
 --
 ALTER TABLE `kategorie`
   ADD PRIMARY KEY (`id`,`lang`);
 
 --
--- Indexes for table `position`
+-- Indizes für die Tabelle `position`
 --
 ALTER TABLE `position`
   ADD PRIMARY KEY (`id`),
@@ -162,76 +232,81 @@ ALTER TABLE `position`
   ADD KEY `FK_PositionGericht` (`gericht_id`);
 
 --
--- Indexes for table `tisch`
+-- Indizes für die Tabelle `tisch`
 --
 ALTER TABLE `tisch`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indizes für die Tabelle `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT für exportierte Tabellen
 --
 
 --
--- AUTO_INCREMENT for table `bestellung`
+-- AUTO_INCREMENT für Tabelle `bestellung`
 --
 ALTER TABLE `bestellung`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `gericht_details`
+-- AUTO_INCREMENT für Tabelle `gericht_details`
 --
 ALTER TABLE `gericht_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `position`
+-- AUTO_INCREMENT für Tabelle `position`
 --
 ALTER TABLE `position`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tisch`
+-- AUTO_INCREMENT für Tabelle `tisch`
 --
 ALTER TABLE `tisch`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Constraints der exportierten Tabellen
 --
 
 --
--- Constraints for table `bestellung`
+-- Constraints der Tabelle `bestellung`
 --
 ALTER TABLE `bestellung`
   ADD CONSTRAINT `FK_BestellungTisch` FOREIGN KEY (`tisch_id`) REFERENCES `tisch` (`id`);
 
 --
--- Constraints for table `gericht`
+-- Constraints der Tabelle `gericht`
 --
 ALTER TABLE `gericht`
   ADD CONSTRAINT `FK_GerichtKategorie` FOREIGN KEY (`kategorie_id`) REFERENCES `kategorie` (`id`);
 
 --
--- Constraints for table `gericht_details`
+-- Constraints der Tabelle `gericht_details`
 --
 ALTER TABLE `gericht_details`
   ADD CONSTRAINT `FK_GerichtDetails` FOREIGN KEY (`gericht_id`) REFERENCES `gericht` (`id`);
 
 --
--- Constraints for table `position`
+-- Constraints der Tabelle `position`
 --
 ALTER TABLE `position`
   ADD CONSTRAINT `FK_PositionBestellungGericht` FOREIGN KEY (`bestellung_id`) REFERENCES `bestellung` (`id`),
   ADD CONSTRAINT `FK_PositionGericht` FOREIGN KEY (`gericht_id`) REFERENCES `gericht` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

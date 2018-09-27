@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'name' => 'Restaurant Name EN',
+    'name' => 'Thai Tanic',
     'nav' => array(
         'home' => 'Home',
         'order' => 'Order',

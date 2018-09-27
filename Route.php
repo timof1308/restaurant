@@ -53,7 +53,7 @@ class Route
             if (preg_match_all("#^$value$#", $uriGetParam, $matches)) {
                 if ($this->_methods[$key] == $_SERVER['REQUEST_METHOD']) {
                     // Funktion aufrufen
-                    call_user_func($this->_callable[$key], $matches[1][0]);
+                    call_user_func($this->_callable[$key], isset($matches[1]) ? $matches[1][0] : $matches);
                     return true;
                 } else {
                     // http methode stimmt nicht überein
