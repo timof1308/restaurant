@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'name' => 'Restaurant Name DE',
+    'name' => 'Thai Tanic',
     'nav' => array(
         'home' => 'Home',
         'order' => 'Bestellung',
@@ -19,7 +19,7 @@ return array(
             'heading' => "So einfach geht's:",
             'select' => "Wählen Sie ihr Essen, indem Sie einfach auf Ihr Lieblingsgericht klicken",
             'food' => "Genießen Sie ihr Essen",
-            'pay' => "Zahlen Sie in Bar oder nutzen Sie einen der vielen Online-Bezahlsystme",
+            'pay' => "Zahlen Sie in Bar oder nutzen Sie einen der vielen Online-Bezahlsysteme",
             'extra' => "Haben Sie noch Fragen? Sprechen Sie einfach unsere hilfsbereiten Kellner an. Wir bieten Ihnen jederzeit unsere Unterstüzung an.",
             'go' => "Los Geht's!"
         )
