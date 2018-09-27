@@ -10,6 +10,13 @@ $(document).ready(function () {
         scrollToElement('#steps')
     });
 
+    $('#tables_list .card').on('click', function () {
+        var $card = $(this);
+        console.log($card);
+        var id = $card.data('id');
+        window.location = window.location.href + "/" + id;
+    });
+
 });
 
 /*

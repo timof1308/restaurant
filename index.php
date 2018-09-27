@@ -5,6 +5,8 @@ require_once(dirname(__FILE__) . '/Route.php');
 require_once(dirname(__FILE__) . '/controllers/TestController.php');
 require_once(dirname(__FILE__) . '/controllers/AuthController.php');
 require_once(dirname(__FILE__) . '/controllers/DatabaseController.php');
+require_once(dirname(__FILE__) . '/controllers/BestellungController.php');
+require_once(dirname(__FILE__) . '/controllers/KuechenController.php');
 require_once(dirname(__FILE__) . '/controllers/Auth.php');
 
 use \App\Route;
@@ -24,10 +26,10 @@ $route->add('GET', '/', function () {
     return true;
 });
 
-$route->add('GET', '/bestellung', function () {
-    include dirname(__FILE__) . '/pages/bestellung.php';
-    return true;
-});
+$route->add('GET', '/bestellung', '\App\BestellungController::showTables');
+$route->add('GET', '/bestellung\/(\d*)', '\App\BestellungController::placeOrder');
+$route->add('GET', '/kueche', '\App\KuechenController::index');
+$route->add('GET', '/gerichte', '\App\KuechenController::get_gerichte');
 
 $route->add('GET', '/login', '\App\AuthController::login');
 $route->add('POST', '/login', '\App\AuthController::authenticate');
