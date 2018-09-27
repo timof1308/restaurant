@@ -149,11 +149,33 @@
     color: #2c3e50;
     font-size: 24px;
 }
+
 #steps .row .text {
     color: #2c3e50;
     font-size: 18px;
 }
 
+#tables_list .card {
+    text-align: center;
+    min-width: 200px;
+    max-width: 350px;
+}
+#tables_list .card .heading {
+    font-size: 48px;
+    font-weight: 800;
+    font-style: italic;
+    margin-top: 0px;
+}
+
+#tables_list .card .sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    margin-bottom: -10px;
+}
+#tables_list .card:hover {
+    cursor: pointer;
+    color: #2c3e50;
+}
 
 /**
  * LOGIN

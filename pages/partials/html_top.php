@@ -10,7 +10,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:200i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php asset('/css/app.css')?>">
     <title>Restaurant Bestellung</title>

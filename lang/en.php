@@ -29,6 +29,14 @@ return array(
         'pw' => 'Password',
         'submit' => 'Login',
         'error' => 'Please check your credentials and try again!',
-        'success' => 'Login successful'
+        'success' => 'Login successful',
+        'out' => 'Logout successful',
+        'required' => 'Login required'
+    ),
+    'order' => array(
+        'step' => '1st Step:',
+        'heading' => 'Select your table',
+        'table' => 'Table',
+        'sub' => 'You find the number on your table:'
     )
 );

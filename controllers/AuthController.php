@@ -45,7 +45,7 @@ class AuthController
             // flash benachrichtigung
             flash("<i class='fas fa-check'></i> " . translate('login.success'), 'success');
             // weiter zur startseite
-            header('Location: ' . config('server.protocol') . $_SERVER['HTTP_HOST'] . config('server.base_url'));
+            header('Location: ' . config('server.protocol') . $_SERVER['HTTP_HOST'] . config('server.base_url') . '/kueche');
         }
     }
 
@@ -55,6 +55,7 @@ class AuthController
     static function logout()
     {
         Auth::clear();
+        flash("<i class='fas fa-info-circle'></i> " . translate('login.out'), 'info');
         // weiterleiten zu loginseite
         header('Location: ' . config('server.protocol') . $_SERVER['HTTP_HOST'] . config('server.base_url') . '/login');
     }
