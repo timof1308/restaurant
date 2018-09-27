@@ -24,7 +24,7 @@
                             <?php
                             if (\App\Auth::check()) {
                                 echo '<a class="text-muted" href="';
-                                asset('/logout');
+                                asset('/kueche');
                                 echo '">';
                                 echo \App\Auth::name();
                                 echo '</a>';

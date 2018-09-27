@@ -29,6 +29,14 @@ return array(
         'pw' => 'Passwort',
         'submit' => 'Anmelden',
         'error' => 'Bitte überprüfe deine Anmeldedaten und versuche es erneut!',
-        'success' => 'Anmeldung erfolgreich'
+        'success' => 'Anmeldung erfolgreich',
+        'out' => 'Abmeldung erfolgreich',
+        'required' => 'Anmeldung erfolderlich'
+    ),
+    'order' => array(
+        'step' => '1. Schritt:',
+        'heading' => 'Tisch auswählen',
+        'table' => 'Tisch',
+        'sub' => 'Ihre Nummer befindet sich auf Ihrem Tisch:',
     )
 );
