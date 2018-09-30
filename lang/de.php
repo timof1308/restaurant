@@ -38,5 +38,12 @@ return array(
         'heading' => 'Tisch auswählen',
         'table' => 'Tisch',
         'sub' => 'Ihre Nummer befindet sich auf Ihrem Tisch:',
+        'drinks' => 'Getränke',
+        'starter' => 'Vorspeise',
+        'main' => 'Hauptgericht',
+        'desert' => 'Nachtisch',
+        'prev' => 'Zurück',
+        'next' => 'Weiter',
+        'send' => 'Bestellen'
     )
 );

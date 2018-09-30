@@ -13,6 +13,6 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php asset('/css/app.css')?>">
-    <title>Restaurant Bestellung</title>
+    <title><?php translate('name') ?></title>
 </head>
 <body>

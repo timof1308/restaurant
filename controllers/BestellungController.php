@@ -15,13 +15,15 @@ class BestellungController
     {
         $db = new DatabaseController();
         $tables = $db->get_tables();
-        include dirname(__FILE__) . './../pages/bestellung.php';
+        include dirname(__FILE__) . './../pages/tisch_auswahl.php';
         return true;
     }
 
-    static function placeOrder($table_id)
+    static function getTable($table_id)
     {
-        echo $table_id;
+        $db = new DatabaseController();
+        $table = $db->get_table($table_id)[0];
+        include dirname(__FILE__) . './../pages/bestellung.php';
         return true;
     }
 }

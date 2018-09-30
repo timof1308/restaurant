@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="nav">
-    <a class="navbar-brand" href="<?php asset('/') ?>">ResBes</a>
+    <a class="navbar-brand" href="<?php asset('/') ?>"><?php translate('name') ?></a>
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" href="<?php asset('/') ?>">
@@ -7,7 +7,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<?php asset('/bestellung') ?>">
+            <a class="nav-link" href="<?php asset('/tisch') ?>">
                 <?php translate('nav.order') ?>
             </a>
         </li>
@@ -30,9 +30,24 @@
                 </a>
                 <a class="dropdown-item" href="<?php asset('/en') ?>">
                     <?php translate('lang.en') ?>
-
                 </a>
             </div>
         </li>
     </ul>
 </nav>
+
+<div class="menu hidden-sm-down" id="toggleNav">
+    <div></div>
+</div>
+
+<div class="mobileMenu" id="mobileMenu">
+    <nav class="overlay-menu">
+        <ul>
+            <li><a href="<?php asset('/') ?>"><?php translate('nav.home') ?></a></li>
+            <li><a href="<?php asset('/tisch') ?>"><?php translate('nav.order') ?></a></li>
+            <li><a href="<?php asset('/rechnung') ?>"><?php translate('nav.bill') ?></a></li>
+            <li><a href="<?php asset('/de') ?>"><?php translate('lang.de') ?></a></li>
+            <li><a href="<?php asset('/en') ?>"><?php translate('lang.en') ?></a></li>
+        </ul>
+    </nav>
+</div>
