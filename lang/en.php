@@ -37,6 +37,14 @@ return array(
         'step' => '1st Step:',
         'heading' => 'Select your table',
         'table' => 'Table',
-        'sub' => 'You find the number on your table:'
+        'sub' => 'You find the number on your table:',
+        'drinks' => 'Drinks',
+        'starter' => 'Starter',
+        'main' => 'Main Course',
+        'desert' => 'Desert',
+        'prev' => 'Previous',
+        'next' => 'Next',
+        'send' => 'Order',
+        'comment' => 'Comment'
     )
 );
