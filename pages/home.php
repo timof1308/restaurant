@@ -9,7 +9,7 @@
 
     <div id="overlay">
         <div class="section">
-            <h1>Restaurant Name</h1>
+            <h1><?php translate('name') ?></h1>
             <div class="line"></div>
             <p class="lead"><?php translate('home.subtitle') ?></p>
             <p><?php translate('home.about') ?></p>
@@ -51,7 +51,7 @@
         <div class="text">
             <?php translate('home.steps.extra') ?>
         </div>
-        <a href="<?php asset('/bestellung') ?>" class="mt-5 btn btn-primary btn-lg"><?php translate('home.steps.go') ?></a>
+        <a href="<?php asset('/tisch') ?>" class="mt-5 btn btn-primary btn-lg"><?php translate('home.steps.go') ?></a>
     </div>
 </div>
 

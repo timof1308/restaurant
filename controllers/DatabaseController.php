@@ -71,31 +71,58 @@ class DatabaseController
     }
 
     /**
+     * Erhalte Tisch Informationen
+     * @param $id
+     * @return array
+     */
+    public function get_table($id)
+    {
+        $sql = "SELECT * FROM tisch WHERE id = '" . $id . "';";
+        $table = array();
+        if ($result = mysqli_query($this->_con, $sql)) {
+            $table = $this->get_as_array($result);
+        }
+        return $table;
+    }
+
+    /**
      * Erhalte alle Gerichte
      * gefiltert nach gesetzter Sprache
      */
     public function get_gerichte()
     {
-        $sql = "SELECT g.id, g.preis, gd.name, gd.beschreibung, k.name as 'kategorie'
+        $sql = "SELECT g.id, g.preis, gd.name, gd.beschreibung, k.id as 'kategorie_id', k.name as 'kategorie'
                 FROM gericht g
                 LEFT JOIN kategorie k on g.kategorie_id = k.id
                 LEFT JOIN gericht_details gd on g.id = gd.gericht_id
-                WHERE gd.lang = '" . $_SESSION['lang'] . "';";
+                WHERE gd.lang = '" . $_SESSION['lang'] . "' 
+                AND k.lang = '" . $_SESSION['lang'] . "';";
+        $dishes = array();
+        if ($result = mysqli_query($this->_con, $sql)) {
+            $dishes = $this->get_as_array($result);
+        }
+        return $dishes;
     }
 
     /**
      * Erhalte alle Gerichte mit Kategorie_id
      * gefiltert nach gesetzter Sprache
      * @param $kategorie_id
+     * @return array
      */
     public function get_gerichte_by_kategorie($kategorie_id)
     {
-        $sql = "SELECT g.id, g.preis, gd.name, gd.beschreibung, k.name as 'kategorie'
+        $sql = "SELECT g.id, g.preis, g.bild, gd.name, gd.beschreibung, k.name as 'kategorie', k.id as 'kategorie_id'
                 FROM gericht g
                 LEFT JOIN kategorie k on g.kategorie_id = k.id
                 LEFT JOIN gericht_details gd on g.id = gd.gericht_id
                 WHERE gd.lang = '" . $_SESSION['lang'] . "' 
                 AND k.lang = '" . $_SESSION['lang'] . "' AND k.id = " . $kategorie_id . ";";
+        $dishes = array();
+        if ($result = mysqli_query($this->_con, $sql)) {
+            $dishes = $this->get_as_array($result);
+        }
+        return $dishes;
     }
 
     /**
@@ -107,6 +134,47 @@ class DatabaseController
         $sql = "SELECT *
                 FROM kategorie
                 WHERE lang = '" . $_SESSION['lang'] . "';";
+        $categories = array();
+        if ($result = mysqli_query($this->_con, $sql)) {
+            $categories = $this->get_as_array($result);
+        }
+        return $categories;
+    }
+
+    /**
+     * Erhalte offene Bestellung für Tisch ID
+     * @param $table_id
+     * @return array
+     */
+    public function get_open_order_by_table($table_id)
+    {
+        $sql = "SELECT *
+                FROM tisch t
+                LEFT JOIN bestellung b on t.id = b.tisch_id
+                WHERE t.id = '" . $table_id . "' AND b.status = 0;";
+        $order = array();
+        if ($result = mysqli_query($this->_con, $sql)) {
+            $order = $this->get_as_array($result);
+        }
+        return $order;
+    }
+
+    /**
+     * Erhalte Rechnungspositionen für eine Bestellung
+     * @param $order_id
+     * @return array
+     */
+    public function get_positions_from_order($order_id)
+    {
+        $sql = "SELECT *
+                FROM bestellung b
+                LEFT JOIN position p on b.id = p.bestellung_id
+                WHERE b.id = '" . $order_id . "' AND b.status = 0;";
+        $positions = array();
+        if ($result = mysqli_query($this->_con, $sql)) {
+            $positions = $this->get_as_array($result);
+        }
+        return $positions;
     }
 
     /**

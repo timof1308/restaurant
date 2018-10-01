@@ -2,30 +2,22 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Erstellungszeit: 27. Sep 2018 um 17:00
--- Server-Version: 10.1.36-MariaDB
--- PHP-Version: 7.2.10
+-- Host: localhost:3306
+-- Generation Time: Sep 29, 2018 at 02:29 PM
+-- Server version: 5.7.23
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- Datenbank: `resbes`
+-- Database: `resbes`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `bestellung`
+-- Table structure for table `bestellung`
 --
 
 CREATE TABLE `bestellung` (
@@ -39,37 +31,38 @@ CREATE TABLE `bestellung` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `gericht`
+-- Table structure for table `gericht`
 --
 
 CREATE TABLE `gericht` (
   `id` int(11) NOT NULL,
   `kategorie_id` int(2) NOT NULL,
-  `preis` double NOT NULL
+  `preis` double NOT NULL,
+  `bild` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `gericht`
+-- Dumping data for table `gericht`
 --
 
-INSERT INTO `gericht` (`id`, `kategorie_id`, `preis`) VALUES
-(1, 1, 3.5),
-(2, 1, 4.5),
-(3, 1, 2.2),
-(4, 2, 6),
-(5, 2, 5.4),
-(6, 2, 7.5),
-(7, 3, 12.5),
-(8, 3, 21),
-(9, 3, 9.5),
-(10, 4, 4),
-(11, 4, 6.5),
-(12, 4, 1);
+INSERT INTO `gericht` (`id`, `kategorie_id`, `preis`, `bild`) VALUES
+(1, 1, 3.5, ''),
+(2, 1, 4.5, ''),
+(3, 1, 2.2, ''),
+(4, 2, 6, ''),
+(5, 2, 5.4, ''),
+(6, 2, 7.5, ''),
+(7, 3, 12.5, ''),
+(8, 3, 21, ''),
+(9, 3, 9.5, ''),
+(10, 4, 4, ''),
+(11, 4, 6.5, ''),
+(12, 4, 1, '');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `gericht_details`
+-- Table structure for table `gericht_details`
 --
 
 CREATE TABLE `gericht_details` (
@@ -81,7 +74,7 @@ CREATE TABLE `gericht_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `gericht_details`
+-- Dumping data for table `gericht_details`
 --
 
 INSERT INTO `gericht_details` (`id`, `gericht_id`, `lang`, `name`, `beschreibung`) VALUES
@@ -113,7 +106,7 @@ INSERT INTO `gericht_details` (`id`, `gericht_id`, `lang`, `name`, `beschreibung
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `kategorie`
+-- Table structure for table `kategorie`
 --
 
 CREATE TABLE `kategorie` (
@@ -123,7 +116,7 @@ CREATE TABLE `kategorie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `kategorie`
+-- Dumping data for table `kategorie`
 --
 
 INSERT INTO `kategorie` (`id`, `lang`, `name`) VALUES
@@ -139,7 +132,7 @@ INSERT INTO `kategorie` (`id`, `lang`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `position`
+-- Table structure for table `position`
 --
 
 CREATE TABLE `position` (
@@ -147,13 +140,14 @@ CREATE TABLE `position` (
   `bestellung_id` int(11) NOT NULL,
   `gericht_id` int(11) NOT NULL,
   `platz_id` int(11) NOT NULL,
+  `kommentar` varchar(255) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `tisch`
+-- Table structure for table `tisch`
 --
 
 CREATE TABLE `tisch` (
@@ -163,19 +157,19 @@ CREATE TABLE `tisch` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `tisch`
+-- Dumping data for table `tisch`
 --
 
 INSERT INTO `tisch` (`id`, `plaetze`, `ausrichtung`) VALUES
-(1, 2, 'ver'),
-(2, 4, 'ver'),
-(3, 2, 'hor'),
-(4, 4, 'hor');
+(1, 4, 'ver'),
+(2, 8, 'ver'),
+(3, 4, 'hor'),
+(4, 10, 'hor');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -185,7 +179,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `password`) VALUES
@@ -193,38 +187,38 @@ INSERT INTO `user` (`id`, `name`, `password`) VALUES
 (2, 'fvogel', 'cc03e747a6afbbcbf8be7668acfebee5');
 
 --
--- Indizes der exportierten Tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indizes für die Tabelle `bestellung`
+-- Indexes for table `bestellung`
 --
 ALTER TABLE `bestellung`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_BestellungTisch` (`tisch_id`);
 
 --
--- Indizes für die Tabelle `gericht`
+-- Indexes for table `gericht`
 --
 ALTER TABLE `gericht`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_GerichtKategorie` (`kategorie_id`);
 
 --
--- Indizes für die Tabelle `gericht_details`
+-- Indexes for table `gericht_details`
 --
 ALTER TABLE `gericht_details`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_GerichtDetails` (`gericht_id`);
 
 --
--- Indizes für die Tabelle `kategorie`
+-- Indexes for table `kategorie`
 --
 ALTER TABLE `kategorie`
   ADD PRIMARY KEY (`id`,`lang`);
 
 --
--- Indizes für die Tabelle `position`
+-- Indexes for table `position`
 --
 ALTER TABLE `position`
   ADD PRIMARY KEY (`id`),
@@ -232,81 +226,76 @@ ALTER TABLE `position`
   ADD KEY `FK_PositionGericht` (`gericht_id`);
 
 --
--- Indizes für die Tabelle `tisch`
+-- Indexes for table `tisch`
 --
 ALTER TABLE `tisch`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT für exportierte Tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT für Tabelle `bestellung`
+-- AUTO_INCREMENT for table `bestellung`
 --
 ALTER TABLE `bestellung`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT für Tabelle `gericht_details`
+-- AUTO_INCREMENT for table `gericht_details`
 --
 ALTER TABLE `gericht_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT für Tabelle `position`
+-- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT für Tabelle `tisch`
+-- AUTO_INCREMENT for table `tisch`
 --
 ALTER TABLE `tisch`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT für Tabelle `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints der exportierten Tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Constraints der Tabelle `bestellung`
+-- Constraints for table `bestellung`
 --
 ALTER TABLE `bestellung`
   ADD CONSTRAINT `FK_BestellungTisch` FOREIGN KEY (`tisch_id`) REFERENCES `tisch` (`id`);
 
 --
--- Constraints der Tabelle `gericht`
+-- Constraints for table `gericht`
 --
 ALTER TABLE `gericht`
   ADD CONSTRAINT `FK_GerichtKategorie` FOREIGN KEY (`kategorie_id`) REFERENCES `kategorie` (`id`);
 
 --
--- Constraints der Tabelle `gericht_details`
+-- Constraints for table `gericht_details`
 --
 ALTER TABLE `gericht_details`
   ADD CONSTRAINT `FK_GerichtDetails` FOREIGN KEY (`gericht_id`) REFERENCES `gericht` (`id`);
 
 --
--- Constraints der Tabelle `position`
+-- Constraints for table `position`
 --
 ALTER TABLE `position`
   ADD CONSTRAINT `FK_PositionBestellungGericht` FOREIGN KEY (`bestellung_id`) REFERENCES `bestellung` (`id`),
   ADD CONSTRAINT `FK_PositionGericht` FOREIGN KEY (`gericht_id`) REFERENCES `gericht` (`id`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
