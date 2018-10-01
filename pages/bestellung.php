@@ -160,6 +160,8 @@
     </div>
 </div>
 
+<div style="display: none;" class="helper" data-comment="<?php translate('order.comment') ?>"></div>
+
 <?php include 'partials/footer.php'; ?>
 
 <?php include 'partials/html_bottom.php'; ?>

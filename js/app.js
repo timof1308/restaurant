@@ -74,6 +74,14 @@ function seite_bestellung() {
             '<div class="placeholder-paragraph"></div>' +
             '</div><div class="col-md-4">' +
             '<div class="placeholder-image"></div></div></div>';
+
+    var ORDER = {
+        '1': [],
+        '2': [],
+        '3': [],
+        '4': [],
+    };
+
     /*
         api_client.getKategorien(function (response) {
             console.log(response);
@@ -145,29 +153,60 @@ function seite_bestellung() {
      */
     DRINKS_MODAL_NEXT.on('click', function () {
         DRINKS_MODAL.modal('hide');
+        get_order_items(DRINKS_MODAL, ORDER);
         STARTER_MODAL.modal('show');
     });
     STARTER_MODAL_PREV.on('click', function () {
         STARTER_MODAL.modal('hide');
+        get_order_items(STARTER_MODAL, ORDER);
         DRINKS_MODAL.modal('show');
     });
     STARTER_MODAL_NEXT.on('click', function () {
         STARTER_MODAL.modal('hide');
+        get_order_items(STARTER_MODAL, ORDER);
         MAIN_MODAL.modal('show');
     });
     MAIN_MODAL_PREV.on('click', function () {
         MAIN_MODAL.modal('hide');
+        get_order_items(MAIN_MODAL, ORDER);
         STARTER_MODAL.modal('show');
     });
     MAIN_MODAL_NEXT.on('click', function () {
         MAIN_MODAL.modal('hide');
+        get_order_items(MAIN_MODAL, ORDER);
         DESERT_MODAL.modal('show');
     });
     DESERT_MODAL_PREV.on('click', function () {
         DESERT_MODAL.modal('hide');
+        get_order_items(DESERT_MODAL, ORDER);
+        console.log(ORDER);
         MAIN_MODAL.modal('show');
     });
 
+}
+
+/**
+ * Erhalten von Menu-Auswahl des Nutzers
+ * @param element
+ * @param order_array
+ */
+function get_order_items(element, order_array) {
+    var $form_boxes = element.find('.form-check');
+    var kategorie_id = null;
+    $form_boxes.each(function () {
+        var $checkbox = $(this).find('input[type="checkbox"]');
+        if ($checkbox.prop('checked')) {
+            var gericht_id = $checkbox.val();
+            kategorie_id = $checkbox.attr('name');
+            if (!order_array[kategorie_id].includes(parseInt(gericht_id))) {
+                order_array[kategorie_id].push(parseInt(gericht_id));
+            }
+        }
+    });
+    var comment = element.find('textarea[name="comment"]').val();
+    if (kategorie_id !== null) {
+        order_array[kategorie_id].push(comment);
+    }
 }
 
 /**
@@ -176,6 +215,8 @@ function seite_bestellung() {
  * @param element
  */
 function loop_append_data(data, element) {
+    const HELPER_TAG = $(document).find('.helper');
+    var comment_label = HELPER_TAG.data('comment');
     element.empty();
     for (var i = 0; i < data.length; i++) {
         var _dish = data[i];
@@ -204,6 +245,14 @@ function loop_append_data(data, element) {
         element.append(content);
         if (i < data.length - 1) {
             element.append('<hr>');
+        } else {
+            var comment_input = '<div class="form-group mt-4">' +
+                '<label for="comment">' +
+                comment_label +
+                '</label>' +
+                '<textarea class="form-control" id="comment" name="comment" rows="3"></textarea>' +
+                '</div>';
+            element.append(comment_input);
         }
     }
 }

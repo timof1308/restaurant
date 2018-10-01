@@ -44,6 +44,7 @@ return array(
         'desert' => 'Desert',
         'prev' => 'Previous',
         'next' => 'Next',
-        'send' => 'Order'
+        'send' => 'Order',
+        'comment' => 'Comment'
     )
 );

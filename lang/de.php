@@ -21,7 +21,7 @@ return array(
             'food' => "Genießen Sie ihr Essen",
             'pay' => "Zahlen Sie in Bar oder nutzen Sie einen der vielen Online-Bezahlsysteme",
             'extra' => "Haben Sie noch Fragen? Sprechen Sie einfach unsere hilfsbereiten Kellner an. Wir bieten Ihnen jederzeit unsere Unterstüzung an.",
-            'go' => "Los Geht's!"
+            'go' => "Los geht's!"
         )
     ),
     'login' => array(
@@ -44,6 +44,7 @@ return array(
         'desert' => 'Nachtisch',
         'prev' => 'Zurück',
         'next' => 'Weiter',
-        'send' => 'Bestellen'
+        'send' => 'Bestellen',
+        'comment' => 'Kommentar'
     )
 );
