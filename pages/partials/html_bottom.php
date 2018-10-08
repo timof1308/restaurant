@@ -1,7 +1,7 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="<?php asset('/js/jquery-3_3_1.min.js') ?>"></script>
+<script src="<?php asset('/js/popper.min.js') ?>"></script>
+<script src="<?php asset('/js/bootstrap.min.js') ?>"></script>
 <!-- Optional JavaScript -->
 <script src="<?php asset('/js/ApiClient.js') ?>"></script>
 <script src="<?php asset('/js/app.js') ?>"></script>

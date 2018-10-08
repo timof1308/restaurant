@@ -3,8 +3,10 @@
 <?php include 'partials/navbar.php'; ?>
 
 <div class="container pt-5">
-    <a class="btn btn-danger btn-sm float-right" href="<?php asset('/logout') ?>">Logout</a>
-    <h1 class="font-weight-light">Küche - <?php echo \App\Auth::name() ?></h1>
+    <h1 class="font-weight-light">
+        <span>Küche - <?php echo \App\Auth::name() ?></span>
+        <a class="btn btn-danger float-right logoutBtn" href="<?php asset('/logout') ?>">Logout</a>
+    </h1>
     <hr>
 </div>
 <div class="container-fluid">
@@ -51,14 +53,16 @@
                                     <tr>
                                         <td>
                                             <label class="place">
-                                                <input type="checkbox" data-nr="<?php echo $i++ ?>" data-toggle="popover">
+                                                <input type="checkbox" data-nr="<?php echo $i++ ?>"
+                                                       data-toggle="popover">
                                                 <span class="seat"></span>
                                             </label>
                                         </td>
                                         <td></td>
                                         <td>
                                             <label class="place">
-                                                <input type="checkbox" data-nr="<?php echo $i++ ?>" data-toggle="popover">
+                                                <input type="checkbox" data-nr="<?php echo $i++ ?>"
+                                                       data-toggle="popover">
                                                 <span class="seat"></span>
                                             </label>
                                         </td>
