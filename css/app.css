@@ -96,6 +96,11 @@
     color: rgba(0, 0, 0, .7);
 }
 
+/* FIX scrollen bei zu langem modal erlauben -- sonst unterer teil abgeschnitten */
+.modal {
+    overflow-y: scroll;
+}
+
 /**
  * Bounce Effekt
  * 3 pixel nach unten dann 2 pixel nach oben (vom ursprung aus)
@@ -203,6 +208,39 @@
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+#orderAlert {
+    display: none;
+}
+
+#orderSuccess {
+    display: none;
+}
+
+#callSubmit {
+    display: none;
+}
+
+.popover-body ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+#notFoundContainer .status {
+    color: rgba(205, 32, 46, 1);
+    font-size: 52px;
+    font-weight: 800;
+    font-style: italic;
+    padding-left: 24px;
+    margin-top: 56px;
+}
+
+#notFoundContainer .status span {
+    font-size: 38px;
+    font-weight: 500;
+    font-style: normal;
+    padding-left: 12px;
 }
 
 /**

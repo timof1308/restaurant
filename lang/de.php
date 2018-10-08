@@ -38,6 +38,11 @@ return array(
         'heading' => 'Tisch auswählen',
         'table' => 'Tisch',
         'sub' => 'Ihre Nummer befindet sich auf Ihrem Tisch:',
+        'menu' => 'Menü',
+        'order' => 'Bestellungen',
+        'name' => 'Name',
+        'call' => 'Kellner rufen',
+        'pay' => 'Zum Bezahlen',
         'drinks' => 'Getränke',
         'starter' => 'Vorspeise',
         'main' => 'Hauptgericht',
@@ -45,6 +50,19 @@ return array(
         'prev' => 'Zurück',
         'next' => 'Weiter',
         'send' => 'Bestellen',
-        'comment' => 'Kommentar'
+        'comment' => 'Kommentar',
+        'submitted' => 'Bestellung ist unterwegs!',
+        'called' => 'Kellner wurde gerufen!',
+        'submit_error_title' => 'Upps, sieht nach einem Fehler aus.',
+        'submit_error_1' => 'Bei der Bestellung für Platz ',
+        'submit_error_2' => ' ist ein Fehler aufgetreten.<br>Bitte kontaktieren Sie unser Personal für Unterstützung.',
+    ),
+    'footer' => array(
+        'imprint' => 'Impressum',
+        'help' => 'Hilfe'
+    ),
+    'error' => array(
+        'title' => 'Kein Treffer',
+        'description' => 'Die von Ihnen aufgerufene Seite konnte nicht gefunden werden.'
     )
 );
