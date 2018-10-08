@@ -161,14 +161,14 @@ function seite_kueche() {
                                     '</tr>';
                             }
                         } else {
-                            content = '<tr><td colspan="4">Keine Bestellungen befunden</td></tr>';
+                            content = '<tr><td colspan="5">Keine Bestellungen befunden</td></tr>';
                         }
                         // tabelle befüllen
                         BESTELLUNG_MODAL_TABLE.html(content);
                     }
                 });
             } else {
-                BESTELLUNG_MODAL_TABLE.html('<tr><td colspan="4" class="text-center">Keine Bestellungen befunden</td></tr>');
+                BESTELLUNG_MODAL_TABLE.html('<tr><td colspan="5" class="text-center">Keine Bestellungen befunden</td></tr>');
             }
         });
     });

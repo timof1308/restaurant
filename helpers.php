@@ -22,15 +22,36 @@ function asset($link)
  * JSON http response
  * @param $array
  * @param null $status_code
- * @return bool
  */
 function json($array, $status_code = null)
 {
     header('Access-Control-Allow-Origin: *');
-    header('Content-type: application/json');
+    header('Content-type: application/json; charset=utf-8');
     http_response_code($status_code ? $status_code : 200);
-    echo json_encode($array);
-    return true;
+    echo json_encode(utf8_string_array_encode($array));
+}
+
+/**
+ * Array in UTF8 formatieren
+ * !! JSON_ENCODE funktion funktioniert nur mit formatiertem Wert !!
+ * @param $array
+ * @return array|string
+ */
+function utf8_string_array_encode($array)
+{
+    $func = function ($value, $key) {
+        if (is_string($value)) {
+            $value = utf8_encode($value);
+        }
+        if (is_string($key)) {
+            $key = utf8_encode($key);
+        }
+        if (is_array($value)) {
+            utf8_string_array_encode($value);
+        }
+    };
+    array_walk($array, $func);
+    return $array;
 }
 
 /**
