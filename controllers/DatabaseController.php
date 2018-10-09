@@ -176,6 +176,7 @@ class DatabaseController
 
     /**
      * Erhalte Rechnungspositionen für eine Bestellung
+     * Absteigend nach Datum / Uhrzeit und Kategorie ID
      * @param $order_id
      * @return array
      */
@@ -187,7 +188,7 @@ class DatabaseController
                 LEFT JOIN gericht g on p.gericht_id = g.id
                 LEFT JOIN gericht_details detail on g.id = detail.gericht_id
                 WHERE b.id = '" . $order_id . "' AND b.status < 3 AND detail.lang = '" . $_SESSION['lang'] . "'
-                ORDER BY g.kategorie_id;";
+                ORDER BY p.updated_at DESC, g.kategorie_id;";
         $positions = array();
         if ($result = mysqli_query($this->_con, $sql)) {
             $positions = $this->get_as_array($result);
