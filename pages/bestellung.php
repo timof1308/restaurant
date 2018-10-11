@@ -31,9 +31,9 @@
     </div>
 
     <div class="text-right mb-3">
-        <button class="btn btn-secondary callWaiterBtn"><i class="fas fa-bullhorn"></i> <?php translate('order.call') ?>
+        <button class="btn btn-secondary callWaiterBtn mt-1"><i class="fas fa-bullhorn"></i> <?php translate('order.call') ?>
         </button>
-        <button class="btn btn-secondary goPayingBtn"><i
+        <button class="btn btn-secondary goPayingBtn mt-1"><i
                     class="fas fa-hand-holding-usd"></i> <?php translate('order.pay') ?></button>
     </div>
 

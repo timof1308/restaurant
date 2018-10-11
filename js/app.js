@@ -95,7 +95,7 @@ function seite_kueche() {
      * Calling Status aufhaben
      */
     $(document).on('click', '.res_table.paying', function () {
-        var order_id = $(this).data('id');
+        var order_id = $(this).attr('data-order');
         var prompt = confirm('Bezahlung abschließen?');
         if (prompt === true) {
             window.location = api_client.base_url + '/order_payed/' + order_id;
@@ -106,7 +106,7 @@ function seite_kueche() {
      * Rechnung für Bestellung sehen
      */
     $(document).on('click', '.viewBillBtn', function () {
-        var order_id = $(this).parents('.card').find('.res_table').data('id');
+        var order_id = $(this).parents('.card').find('.res_table').attr('data-order');
         var _new = window.open(api_client.base_url + '/view_bill/' + order_id, '_blank');
         _new.focus();
     });
@@ -187,7 +187,7 @@ function seite_kueche() {
                     $table.toggleClass('paying');
                 }
                 // bestell id in dom einfügen
-                $table.data('order', response.data.id);
+                $table.attr('data-order', response.data.id);
                 api_client.getPositionsByOrder(response.data.id, function (res) {
                     if (res.status === 200) {
                         var positions = res.data;
