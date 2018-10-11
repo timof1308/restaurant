@@ -16,6 +16,7 @@ class AuthController
      */
     static function login()
     {
+        // ist Anmeldung erfolgt?
         if (Auth::check()) {
             // user logout
             AuthController::logout();

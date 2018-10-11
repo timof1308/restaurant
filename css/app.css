@@ -244,15 +244,17 @@
     background: linear-gradient(to top, #ff6a00 0%, #ee0979 100%);
     transition: all 0.35s ease;
     z-index: -1;
+    border-radius: 2px;
 }
+
 #tables_list .card-body:hover::after {
     height: 100%;
 }
+
 #tables_list .card:hover .card-body {
     z-index: 0;
     color: white;
 }
-
 
 #tables_list .card .heading {
     font-size: 48px;
