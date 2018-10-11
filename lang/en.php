@@ -38,6 +38,11 @@ return array(
         'heading' => 'Select your table',
         'table' => 'Table',
         'sub' => 'You find the number on your table:',
+        'menu' => 'Menu',
+        'order' => 'Orders',
+        'name' => 'Name',
+        'call' => 'Call waiter',
+        'pay' => 'Paying',
         'drinks' => 'Drinks',
         'starter' => 'Starter',
         'main' => 'Main Course',
@@ -45,6 +50,19 @@ return array(
         'prev' => 'Previous',
         'next' => 'Next',
         'send' => 'Order',
-        'comment' => 'Comment'
+        'comment' => 'Comment',
+        'submitted' => 'Your order is on it\'s way!',
+        'called' => 'Waiter has been requested!',
+        'submit_error_title' => 'Upps, looks like an error.',
+        'submit_error_1' => 'An error occured for sending the order for seat ',
+        'submit_error_2' => '.<br>Please contact the staff for assistance.',
+    ),
+    'footer' => array(
+        'imprint' => 'Imprint',
+        'help' => 'Help'
+    ),
+    'error' => array(
+        'title' => 'Not Found',
+        'description' => 'The requested site could not be found.'
     )
 );

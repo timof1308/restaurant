@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <div id="footer">
     <div class="container">
         <footer class="pt-4 my-md-5 pt-md-5 border-top">
@@ -27,7 +28,7 @@
                     </ul>
                 </div>
                 <div class="col-6 col-md">
-                    <h5>Help</h5>
+                    <h5><?php translate('footer.help') ?></h5>
                     <ul class="list-unstyled text-small">
                         <li>
                             <?php if (\App\Auth::check()): ?>
@@ -38,8 +39,11 @@
                                 <a class="text-muted" href="<?php asset('/login'); ?>">Login</a>
                             <?php endif; ?>
                         </li>
-                        <li><a class="text-muted" href="#">Imprint</a></li>
-                        <li><a class="text-muted" href="#">GDPR</a></li>
+                        <li>
+                            <a class="text-muted" href="<?php asset('/impressum') ?>">
+                                <?php translate('footer.imprint') ?>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

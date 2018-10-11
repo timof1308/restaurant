@@ -16,6 +16,7 @@ class AuthController
      */
     static function login()
     {
+        // ist Anmeldung erfolgt?
         if (Auth::check()) {
             // user logout
             AuthController::logout();
@@ -38,14 +39,17 @@ class AuthController
             // falsche daten
             $_SESSION['login'] = false;
             // zurück zu login mit fehlermeldung
-            header('Location: ' . config('server.protocol') . $_SERVER['HTTP_HOST'] . config('server.base_url') . '/login');
+            // weiterleiten zu loginseite
+            header('Location: ' . config('server.protocol') . $_SERVER['HTTP_HOST'] . config('server.base_url') . '/login', true, 301);
+            exit();
         } else {
             // login erfolgreich
             Auth::set($auth);
             // flash benachrichtigung
             flash("<i class='fas fa-check'></i> " . translate('login.success'), 'success');
-            // weiter zur startseite
-            header('Location: ' . config('server.protocol') . $_SERVER['HTTP_HOST'] . config('server.base_url') . '/kueche');
+            // weiter zur kuechenseite
+            header('Location: ' . config('server.protocol') . $_SERVER['HTTP_HOST'] . config('server.base_url') . '/kueche', true, 301);
+            exit();
         }
     }
 
@@ -57,6 +61,7 @@ class AuthController
         Auth::clear();
         flash("<i class='fas fa-info-circle'></i> " . translate('login.out'), 'info');
         // weiterleiten zu loginseite
-        header('Location: ' . config('server.protocol') . $_SERVER['HTTP_HOST'] . config('server.base_url') . '/login');
+        header('Location: ' . config('server.protocol') . $_SERVER['HTTP_HOST'] . config('server.base_url') . '/login', true, 301);
+        exit;
     }
 }

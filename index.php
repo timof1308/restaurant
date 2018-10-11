@@ -7,7 +7,6 @@ require_once(dirname(__FILE__) . '/controllers/AuthController.php');
 require_once(dirname(__FILE__) . '/controllers/DatabaseController.php');
 require_once(dirname(__FILE__) . '/controllers/BestellungController.php');
 require_once(dirname(__FILE__) . '/controllers/KuechenController.php');
-require_once(dirname(__FILE__) . '/controllers/TestController.php');
 
 use \App\Route;
 
@@ -33,6 +32,15 @@ $route->add('GET', '/gerichte', '\App\KuechenController::get_gerichte');
 $route->add('GET', '/kategorie_gerichte\/(\d*)', '\App\KuechenController::get_gerichte_by_kategorie');
 $route->add('GET', '/kategorien', '\App\KuechenController::get_kategorien');
 $route->add('GET', '/tisch_bestellung\/(\d*)', '\App\KuechenController::get_order_by_table');
+$route->add('GET', '/bestellung_position\/(\d*)', '\App\KuechenController::get_positions_by_order');
+$route->add('GET', '/gericht\/(\d*)', '\App\KuechenController::get_gericht');
+$route->add('GET', '/revoke_position\/(\d*)', '\App\KuechenController::revoke_position');
+$route->add('POST', '/bestellung', '\App\KuechenController::create_order');
+$route->add('POST', '/position', '\App\KuechenController::create_position');
+$route->add('POST', '/bestellung\/(\d*)', '\App\KuechenController::update_order_status');
+$route->add('GET', '/paying\/(\d*)', '\App\KuechenController::paying_order');
+$route->add('GET', '/order_payed\/(\d*)', '\App\KuechenController::order_payed');
+$route->add('GET', '/view_bill\/(\d*)', '\App\KuechenController::view_bill');
 
 /*
  * Authentifizierungs Routen
@@ -53,8 +61,9 @@ $route->add('GET', '/en', function () {
     header('Location: ' . config('server.protocol') . $_SERVER['HTTP_HOST'] . config('server.base_url'));
 });
 
-
-$route->add('GET', '/test', '\App\TestController::test');
-$route->add('GET', '/test\/(\d*)', '\App\TestController::regex');
+$route->add('GET', '/impressum', function () {
+    include dirname(__FILE__) . '/pages/impressum.php';
+    return true;
+});
 
 $route->run();

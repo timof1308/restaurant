@@ -9,7 +9,9 @@
 return array(
     'server' => array(
         'protocol' => 'http://',
-        'base_url' => '/restaurant'
+        'base_url' => '/restaurant',
+        'url' => 'http://localhost/restaurant/',
+        'bill_url' => 'http://localhost:8080/RechnungServlet/Home?id='
     ),
     'lang_fallback' => 'de',
     'db' => array(

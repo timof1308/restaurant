@@ -49,15 +49,15 @@ INSERT INTO `gericht` (`id`, `kategorie_id`, `preis`, `bild`) VALUES
 (1, 1, 3.5, ''),
 (2, 1, 4.5, ''),
 (3, 1, 2.2, ''),
-(4, 2, 6, ''),
-(5, 2, 5.4, ''),
-(6, 2, 7.5, ''),
-(7, 3, 12.5, ''),
-(8, 3, 21, ''),
-(9, 3, 9.5, ''),
-(10, 4, 4, ''),
-(11, 4, 6.5, ''),
-(12, 4, 1, '');
+(4, 2, 6, 'Gegrillte_Peperoni.jpg'),
+(5, 2, 5.4, 'Kaeseplatte.jpg'),
+(6, 2, 7.5, 'Antipasti.jpg'),
+(7, 3, 12.5, 'Jaegerschnitzel.jpg'),
+(8, 3, 21, 'Rumpsteak.jpg'),
+(9, 3, 9.5, 'Spaghetti.jpg'),
+(10, 4, 4, 'Tiramisu.jpg'),
+(11, 4, 6.5, 'Creme_Brulee.jpg'),
+(12, 4, 1, 'Titanic.jpg');
 
 -- --------------------------------------------------------
 

@@ -6,6 +6,66 @@
     overflow: hidden;
 }
 
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background: #4587F0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#4587F0), to(#4C68DD));
+    background: linear-gradient(to bottom, #4587F0 0%, #4C68DD 100%);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.btn {
+    border-width: 0;
+    border-color: transparent;
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.09);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.09);
+    padding: 15px 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    line-height: 1;
+}
+
+.btn.btn-primary {
+    background: #4587F0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#4587F0), to(#4C68DD));
+    background: linear-gradient(to bottom, #4587F0 0%, #4C68DD 100%);
+}
+
+.btn.btn-secondary {
+    background: #292A31;
+}
+
+.btn.btn-success {
+    background: #74D571;
+    background: -webkit-gradient(linear, left top, left bottom, from(#74D571), to(#44BA6E));
+    background: linear-gradient(to bottom, #74D571 0%, #44BA6E 100%);
+}
+
+.logoutBtn {
+    margin-top: 2px;
+}
+
+.form-group input,
+.form-group textarea {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 11px system-ui;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
 /* .section klasse über dem video lassen bei kleinen screen */
 @media (max-width: 992px) {
     #videoIntro {
@@ -96,6 +156,11 @@
     color: rgba(0, 0, 0, .7);
 }
 
+/* FIX scrollen bei zu langem modal erlauben -- sonst unterer teil abgeschnitten */
+.modal {
+    overflow-y: scroll;
+}
+
 /**
  * Bounce Effekt
  * 3 pixel nach unten dann 2 pixel nach oben (vom ursprung aus)
@@ -161,6 +226,36 @@
     max-width: 350px;
 }
 
+#tables_list .card:hover {
+    -webkit-box-shadow: 0px 0px 18px 0px rgba(215, 215, 215, 1);
+    -moz-box-shadow: 0px 0px 18px 0px rgba(215, 215, 215, 1);
+    box-shadow: 0px 0px 18px 0px rgba(215, 215, 215, 1);
+}
+
+#tables_list .card-body:after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: #ee0979;
+    background: -webkit-linear-gradient(to top, #ff6a00 0%, #ee0979 100%);
+    background: linear-gradient(to top, #ff6a00 0%, #ee0979 100%);
+    transition: all 0.35s ease;
+    z-index: -1;
+    border-radius: 2px;
+}
+
+#tables_list .card-body:hover::after {
+    height: 100%;
+}
+
+#tables_list .card:hover .card-body {
+    z-index: 0;
+    color: white;
+}
+
 #tables_list .card .heading {
     font-size: 48px;
     font-weight: 800;
@@ -189,7 +284,7 @@
 #login-page {
     min-height: 100vh;
     width: 100%;
-    background: #f6f6f6;
+    background: #eaedf1;
 }
 
 #login-card {
@@ -203,6 +298,39 @@
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+#orderAlert {
+    display: none;
+}
+
+#orderSuccess {
+    display: none;
+}
+
+#callSubmit {
+    display: none;
+}
+
+.popover-body ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+#notFoundContainer .status {
+    color: rgba(205, 32, 46, 1);
+    font-size: 52px;
+    font-weight: 800;
+    font-style: italic;
+    padding-left: 24px;
+    margin-top: 56px;
+}
+
+#notFoundContainer .status span {
+    font-size: 38px;
+    font-weight: 500;
+    font-style: normal;
+    padding-left: 12px;
 }
 
 /**
@@ -541,6 +669,18 @@
 
 .res_table .place.error input:checked ~ .seat {
     background: #cd202e;
+}
+
+nav ul.navbar-nav li.nav-item {
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    padding: 5px 10px 2px;
 }
 
 /**

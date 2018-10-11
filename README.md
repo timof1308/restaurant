@@ -19,10 +19,9 @@
 - Küchenansicht zur Auflistung der Bestllungen
 - Rechnung anzeigen lassen
 
-#### Techniken
-- PHP Funktion
-- DB Zugriff durch PHP
-- AJAX Call
-- JSP Seite (-> Rechnung) -> JDBC Datenbankzugriff
-- Bean (in Verbindung mit JSP Seite)
-- HTML, JS, CSS
+#### Hinweise
+##### Tisch - Status
+- 0 = offen / keine Besonderheit
+- 1 = Staff rufen
+- 2 = nach Bezahlung gefragt
+- 3 = bezahlt
