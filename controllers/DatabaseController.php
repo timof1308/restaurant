@@ -86,6 +86,21 @@ class DatabaseController
     }
 
     /**
+     * Erhalte Gericht mit ID
+     * @param $gericht_id
+     * @return mixed
+     */
+    public function get_gericht($gericht_id)
+    {
+        $sql = "SELECT * FROM gericht g LEFT JOIN gericht_details gd on g.id = gd.gericht_id WHERE g.id = $gericht_id AND gd.lang = '" . $_SESSION['lang'] . "';";
+        $gericht = array();
+        if ($result = mysqli_query($this->_con, $sql)) {
+            $gericht = $this->get_as_array($result);
+        }
+        return $gericht[0];
+    }
+
+    /**
      * Erhalte alle Gerichte
      * gefiltert nach gesetzter Sprache
      */
@@ -112,7 +127,7 @@ class DatabaseController
      */
     public function get_gerichte_by_kategorie($kategorie_id)
     {
-        $sql = "SELECT g.id, g.preis, g.bild, gd.name, gd.beschreibung, k.name as 'kategorie', k.id as 'kategorie_id'
+        $sql = "SELECT g.id, g.preis, CONCAT('" . config('server.url') . 'img/' . "', g.bild) AS bild, gd.name, gd.beschreibung, k.name as 'kategorie', k.id as 'kategorie_id'
                 FROM gericht g
                 LEFT JOIN kategorie k on g.kategorie_id = k.id
                 LEFT JOIN gericht_details gd on g.id = gd.gericht_id
@@ -151,7 +166,7 @@ class DatabaseController
         $sql = "SELECT *
                 FROM tisch t
                 LEFT JOIN bestellung b on t.id = b.tisch_id
-                WHERE t.id = '" . $table_id . "' AND b.status = 0;";
+                WHERE t.id = '" . $table_id . "' AND b.status < 3;";
         $order = array();
         if ($result = mysqli_query($this->_con, $sql)) {
             $order = $this->get_as_array($result);
@@ -161,20 +176,94 @@ class DatabaseController
 
     /**
      * Erhalte Rechnungspositionen für eine Bestellung
+     * Absteigend nach Datum / Uhrzeit und Kategorie ID
      * @param $order_id
      * @return array
      */
     public function get_positions_from_order($order_id)
     {
-        $sql = "SELECT *
+        $sql = "SELECT p.id, p.bestellung_id, b.tisch_id, b.status, b.created_at, b.updated_at, p.gericht_id, p.platz_id, p.kommentar, detail.name, p.updated_at
                 FROM bestellung b
                 LEFT JOIN position p on b.id = p.bestellung_id
-                WHERE b.id = '" . $order_id . "' AND b.status = 0;";
+                LEFT JOIN gericht g on p.gericht_id = g.id
+                LEFT JOIN gericht_details detail on g.id = detail.gericht_id
+                WHERE b.id = '" . $order_id . "' AND b.status < 3 AND detail.lang = '" . $_SESSION['lang'] . "'
+                ORDER BY p.updated_at DESC, g.kategorie_id;";
         $positions = array();
         if ($result = mysqli_query($this->_con, $sql)) {
             $positions = $this->get_as_array($result);
         }
         return $positions;
+    }
+
+    /**
+     * Neue Bestellung erstellen
+     * @param $table_id
+     * @return int|string
+     */
+    public function create_order($table_id)
+    {
+        $sql = "INSERT INTO `bestellung`(`tisch_id`, `status`) VALUES ('" . $table_id . "', '0')";
+        if ($result = mysqli_query($this->_con, $sql)) {
+            $order_id = mysqli_insert_id($this->_con);
+        }
+        return $order_id;
+    }
+
+    /**
+     * Neue Position für Tisch hinzufügen
+     * @param $bestellung_id
+     * @param $gericht_id
+     * @param $platz_nr
+     * @param $comment
+     * @return int|string
+     */
+    public function create_position($bestellung_id, $gericht_id, $platz_nr, $comment)
+    {
+        $sql = "INSERT INTO `position` (`bestellung_id`, `gericht_id`, `platz_id`, `kommentar`) VALUES ($bestellung_id, $gericht_id, $platz_nr, '$comment');";
+        if ($result = mysqli_query($this->_con, $sql)) {
+            $position_id = mysqli_insert_id($this->_con);
+        } else {
+            echo $sql;
+            die(mysqli_error($this->_con));
+        }
+        return $position_id;
+    }
+
+    /**
+     * Update des Bestell Status
+     * für rufen, bezahlen, ...
+     * @param $order_id
+     * @param $status
+     * @return int|string
+     */
+    public function udpate_order_status($order_id, $status)
+    {
+        $sql = "UPDATE `bestellung` SET `status` = " . $status . " WHERE `bestellung`.`id` = '" . $order_id . "';";
+        if (mysqli_query($this->_con, $sql)) {
+            $update = true;
+        } else {
+            mysqli_error($this->_con);
+            $update = false;
+        }
+        return $update;
+    }
+
+    /**
+     * Positionseintrag löschen
+     * @param $position_id
+     * @return bool
+     */
+    public function revoke_position($position_id)
+    {
+        $sql = "DELETE FROM `position` WHERE `position`.`id` = $position_id";
+        if (mysqli_query($this->_con, $sql)) {
+            $delete = true;
+        } else {
+            mysqli_error($this->_con);
+            $delete = false;
+        }
+        return $delete;
     }
 
     /**
