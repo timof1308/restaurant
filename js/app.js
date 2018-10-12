@@ -676,28 +676,29 @@ function loop_append_data(data, element) {
  * @param kategorie
  */
 function revoke_handler(platz_nr, element, kategorie) {
-    element.parents('.modal-body').find('.nav-pills').find('a:last-child()').removeClass('disabled');
+    element.parents('.modal-body').find('.nav-pills').find('a:last-child()').addClass('disabled');
     if (getCookie(platz_nr) !== "") {
         var cookie = JSON.parse(getCookie(platz_nr));
-        element.empty();
-        for (var g = 0; g < cookie[kategorie]['id'].length; g++) {
-            var index = g;
-            api_client.getGericht(cookie[kategorie]['id'][g].gericht_id, function (response) {
-                if (response.status === 200) {
-                    var content = '' +
-                        '<tr data-id="' + cookie[kategorie]['id'][index].position_id +
-                        '">' +
-                        '    <td>' + response.data.name +
-                        '</td>' +
-                        '    <td class="text-right"><i class="fas fa-trash-alt revokeOrder"></i></td>' +
-                        '</tr>';
+        if (cookie[kategorie]['id'].length > 0) {
+            element.parents('.modal-body').find('.nav-pills').find('a:last-child()').removeClass('disabled');
+            element.empty();
+            for (var g = 0; g < cookie[kategorie]['id'].length; g++) {
+                var index = g;
+                api_client.getGericht(cookie[kategorie]['id'][g].gericht_id, function (response) {
+                    if (response.status === 200) {
+                        var content = '' +
+                            '<tr data-id="' + cookie[kategorie]['id'][index].position_id +
+                            '">' +
+                            '    <td>' + response.data.name +
+                            '</td>' +
+                            '    <td class="text-right"><i class="fas fa-trash-alt revokeOrder"></i></td>' +
+                            '</tr>';
 
-                    element.append(content);
-                }
-            });
+                        element.append(content);
+                    }
+                });
+            }
         }
-    } else {
-        element.parents('.modal-body').find('.nav-pills').find('a:last-child()').addClass('disabled');
     }
 }
 

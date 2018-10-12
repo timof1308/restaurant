@@ -11,13 +11,6 @@
                 <?php translate('nav.order') ?>
             </a>
         </li>
-        <!--
-        <li class="nav-item">
-            <a class="nav-link" href="<?php asset('/rechnung') ?>">
-                <?php translate('nav.bill') ?>
-            </a>
-        </li>
-        -->
     </ul>
     <!-- navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -47,7 +40,6 @@
         <ul>
             <li><a href="<?php asset('/') ?>"><?php translate('nav.home') ?></a></li>
             <li><a href="<?php asset('/tisch') ?>"><?php translate('nav.order') ?></a></li>
-            <!--<li><a href="<?php asset('/rechnung') ?>"><?php translate('nav.bill') ?></a></li>-->
             <li><a href="<?php asset('/de') ?>"><?php translate('lang.de') ?></a></li>
             <li><a href="<?php asset('/en') ?>"><?php translate('lang.en') ?></a></li>
         </ul>
