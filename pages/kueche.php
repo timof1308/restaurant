@@ -19,7 +19,7 @@
                     </div>
                     <div class="card-body">
                         <table class="table table-borderless res_table <?php echo $table['ausrichtung']; ?>"
-                               data-id="<?php echo $table['id'] ?>" data-seats="<?php echo $table['plaetze'] ?>">
+                               data-id="<?php echo $table['id'] ?>" data-seats="<?php echo $table['plaetze'] ?>" data-order="">
                             <tbody>
                             <?php if ($table['ausrichtung'] == "hor"): ?>
                                 <tr>

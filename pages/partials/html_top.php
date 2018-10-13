@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php asset('/css/app.css')?>">
+    <link rel="icon" href="<?php asset('/img/favicon.ico') ?>" type="image/png">
     <title><?php translate('name') ?></title>
 </head>
 <body>
