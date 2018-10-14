@@ -432,31 +432,55 @@ function seite_bestellung() {
         get_order_items(DRINKS_MODAL, ORDER);
         DRINKS_MODAL.modal('hide');
         STARTER_MODAL.modal('show');
+        ORDER[STARTER] = {
+            id: [],
+            comment: ""
+        };
     });
     STARTER_MODAL_PREV.on('click', function () {
         get_order_items(STARTER_MODAL, ORDER);
         STARTER_MODAL.modal('hide');
         DRINKS_MODAL.modal('show');
+        ORDER[DRINKS] = {
+            id: [],
+            comment: ""
+        };
     });
     STARTER_MODAL_NEXT.on('click', function () {
         get_order_items(STARTER_MODAL, ORDER);
         STARTER_MODAL.modal('hide');
         MAIN_MODAL.modal('show');
+        ORDER[MAIN] = {
+            id: [],
+            comment: ""
+        };
     });
     MAIN_MODAL_PREV.on('click', function () {
         get_order_items(MAIN_MODAL, ORDER);
         MAIN_MODAL.modal('hide');
         STARTER_MODAL.modal('show');
+        ORDER[STARTER] = {
+            id: [],
+            comment: ""
+        };
     });
     MAIN_MODAL_NEXT.on('click', function () {
         get_order_items(MAIN_MODAL, ORDER);
         MAIN_MODAL.modal('hide');
         DESERT_MODAL.modal('show');
+        ORDER[DESERT] = {
+            id: [],
+            comment: ""
+        };
     });
     DESERT_MODAL_PREV.on('click', function () {
         get_order_items(DESERT_MODAL, ORDER);
         DESERT_MODAL.modal('hide');
         MAIN_MODAL.modal('show');
+        ORDER[MAIN] = {
+            id: [],
+            comment: ""
+        };
     });
 
     MENU_MODAL_SEND.on('click', function () {
